@@ -1,59 +1,16 @@
 package org.launchcode.techjobs.oo;
 
+// Import Objects utility for equals and hashCode
 import java.util.Objects;
 
-public class Location {
+// Location now extends JobField
+public class Location extends JobField {
 
-    private int id;
-    private static int nextId = 1;
-    private String value;
-
-    public Location() {
-        id = nextId;
-        nextId++;
-    }
-
+    // Constructor that accepts a value and passes it to the superclass
     public Location(String value) {
-        this(); // This calls the default constructor to initialize 'id'
-        this.value = value; // Assign the passed 'value' to the 'value' field
+        super(value);  // Call to the JobField constructor to initialize the 'value' field
     }
 
-    // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
-    //  constructor should also call the empty constructor in order to initialize the 'id' field.
-
-
-    // Custom toString, equals, and hashCode methods:
-
-    @Override
-    public String toString() {
-        return value;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Location)) return false;
-        Location location = (Location) o;
-        return getId() == location.getId();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
-    // Getters and Setters:
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
+    // No need to redefine equals, hashCode, toString, getId, or getValue methods,
+    // since these are inherited from JobField
 }

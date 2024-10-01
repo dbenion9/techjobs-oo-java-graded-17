@@ -1,61 +1,13 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Objects;
+// PositionType now extends JobField
+public class PositionType extends JobField {
 
-public class PositionType {
-
-    private int id;
-    private static int nextId = 1;
-    private String value;
-
-    public PositionType() {
-        id = nextId;
-        nextId++;
-    }
-
+    // Constructor that accepts a value and passes it to the superclass
     public PositionType(String value) {
-        this();
-        this.value = value;
+        super(value);  // Call to the JobField constructor to initialize the 'value' field
     }
 
-    // TODO: Add a custom toString() method that returns the data stored in 'value'.
-
-    // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
-    //  their id fields match.
-
-    // Custom toString method that returns the value stored in 'value'
-    @Override
-    public String toString() {
-        return this.value;
-    }
-
-    // Custom equals method that compares PositionType objects based on 'id'
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PositionType that = (PositionType) o;
-        return id == that.id;
-    }
-
-    // Custom hashCode method using 'id'
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    // Getters and Setters:
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
+    // No need to redefine equals, hashCode, toString, getId, or getValue methods,
+    // since these are inherited from JobField
 }
